@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@model  AppContacts.ViewModel.ContactViewModel
+<h2> Create </h2>
+<div align="center">
+    @using (Html.BeginForm("create", "Contact", FormMethod.Post))
+    {
+    <table class="table">
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.FirstName) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.FirstName) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.LastName) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.LastName) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Email) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Email) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Phone) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Phone) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Address) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Address) </td>
+        </tr>
+        <tr>
+            @*<td>@Html.LabelFor(model => model.Contact.Status) </td>*@
+            <td>@Html.Label("Active") </td>
+            <td>@Html.CheckBoxFor(model => model.Contact.Status) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+    }
+</div> 

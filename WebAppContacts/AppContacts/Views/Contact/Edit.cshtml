@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@model  AppContacts.ViewModel.ContactViewModel
+<h2> Edit </h2>
+<div align="center" width="500px">
+    @using (Html.BeginForm("Edit", "Contact", FormMethod.Post))
+    {
+    <table class="table" width="400px" cellpadding="20">
+        <tr class="btn-default">
+            <td>@Html.LabelFor(model => model.Contact.FirstName) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.FirstName) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.LastName) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.LastName) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Email) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Email) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Phone) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Phone) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Contact.Address) </td>
+            <td>@Html.TextBoxFor(model => model.Contact.Address) </td>
+        </tr>
+        <tr>
+            @*<td>@Html.LabelFor(model => model.Contact.Status) </td>*@
+            <td>@Html.Label("Active") </td>
+            <td>@Html.CheckBoxFor(model => model.Contact.Status) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Save"/><a class="btn-primary" href="@Url.Action("Index","Contact")"> Back </a> @Html.HiddenFor(model => model.Contact.Id)</td>
+        </tr>
+    </table>
+    }
+</div> 

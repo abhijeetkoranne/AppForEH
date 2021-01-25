@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div align="center">
+    <a href="@Url.Action("Create","Contact")"> Add New Contact </a> <br/> <br/>
+    <table cellpadding="2" class="table" cellspacing="2" border="1">
+        <tr class="btn-primary">
+            <th> Id </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Phone </th>
+            <th> Address </th>
+            <th> Status </th>
+            <th> Action </th>
+        </tr>
+        @foreach (var Contact in ViewBag.listContacts)
+        {
+        <tr class="btn-success">
+            <td>@Contact.Id </td>
+            <td>@Contact.FirstName </td>
+            <td>@Contact.LastName </td>
+            <td>@Contact.Email </td>
+            <td>@Contact.Phone </td>
+            <td>@Contact.Address </td>
+            <td>
+
+                @if (@Contact.Status)
+                   {<text>Active</text>}
+                else
+                   {<text>Inactive</text>}
+            </td>
+            <td>
+
+                <a onclick="return confirm('Do you want to Delete?')" href="@Url.Action("Delete","Contact",new {id= Contact.Id})">Delete</a>
+
+                || <a href="@Url.Action("Edit","Contact",new { id = Contact.Id }) ">Edit</a>
+
+            </td>
+
+        </tr>
+        }
+    </table>
+</div> 
